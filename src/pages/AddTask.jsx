@@ -1,5 +1,5 @@
 import { arrow } from '../assets';
-import { Form, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 const AddTask = () => (
 	<div className="overflow-hidden">
@@ -11,6 +11,21 @@ const AddTask = () => (
 				<div className="font-semibold text-2xl text-white">ADD TASK</div>
 			</div>
 		</div>
+		<form className="flex flex-col mx-6 space-y-8 my-12">
+			<input
+				type="text"
+				placeholder="Title"
+				className="h-10 px-4 border-b-2 focus:outline-none"
+			/>
+			<input
+				type="text"
+				placeholder="Detail"
+				className="h-10 px-4 border-b-2 focus:outline-none"
+			/>
+			<button className="font-semibold text-xl text-white text-center bg-[#9395D3] py-3.5 rounded-2xl">
+				ADD
+			</button>
+		</form>
 	</div>
 );
 
