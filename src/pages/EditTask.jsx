@@ -8,7 +8,7 @@ const EditTask = () => (
 				<Link to="/">
 					<img src={arrow} alt={arrow} className="w-6 h-6" />
 				</Link>
-				<div className="font-semibold text-2xl text-white">EDIT TASK</div>
+				<div className="font-semibold text-2xl text-white">Edit Task</div>
 			</div>
 		</div>
 		<form className="flex flex-col mx-6 space-y-8 my-12">
