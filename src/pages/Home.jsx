@@ -17,9 +17,9 @@ const Home = () => (
 						<p className="text-base">TO do list</p>
 					</div>
 					<div className="flex space-x-6 items-center">
-						<button>
+						<Link to="/edittask">
 							<img src={pen} alt={pen} className="w-5 h-5" />
-						</button>
+						</Link>
 						<button>
 							<img src={recycleBin} alt={recycleBin} className="w-5 h-5" />
 						</button>
