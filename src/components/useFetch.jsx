@@ -8,7 +8,7 @@ const useFetch = (url, options) => {
 	useEffect(() => {
 		let isMounted = true;
 
-		//Promise versio for fetching data from the server
+		//Promise version for fetching data from the server
 		const FetchData = () => {
 			setLoading(true);
 			fetch(url, options)
