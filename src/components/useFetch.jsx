@@ -8,7 +8,8 @@ const useFetch = (url, options) => {
 	useEffect(() => {
 		let isMounted = true;
 
-		const fetchData = () => {
+		//Promise versio for fetching data from the server
+		const FetchData = () => {
 			setLoading(true);
 			fetch(url, options)
 				.then((res) => {
@@ -31,7 +32,28 @@ const useFetch = (url, options) => {
 				});
 		};
 
-		fetchData();
+		// Async/ Await version of fetching from an API endpoints
+		// const Fetchdata = async () => {
+		// 	setLoading(true);
+		// 	try {
+		// 		const res = await fetch(url, options);
+		// 		if (!res.ok) {
+		// 			throw new error(`Fetching ${url} failed: ${res.status}`);
+		// 		}
+		// 		const data = await res.json();
+		// 		if (isMounted) {
+		// 			setData(data);
+		// 			setLoading(false);
+		// 		}
+		// 	} catch (error) {
+		// 		if (isMounted) {
+		// 			setError(error.message);
+		// 			setLoading(false);
+		// 		}
+		// 	}
+		// };
+
+		FetchData();
 		return () => {
 			isMounted = false;
 		};

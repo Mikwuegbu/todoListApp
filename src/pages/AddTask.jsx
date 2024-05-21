@@ -1,6 +1,5 @@
 import { arrow } from '../assets';
 import { Link } from 'react-router-dom';
-import useFetch from '../components/useFetch';
 
 const AddTask = () => (
 	// const { data, loading, error } = useFetch("https://api.github.com", );
