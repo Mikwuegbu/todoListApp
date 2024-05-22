@@ -6,9 +6,8 @@ const useFetch = (url, options) => {
 	const [error, setError] = useState(null);
 
 	useEffect(() => {
-		let isMounted = true;
-
 		//Promise version for fetching data from the server
+		let isMounted = true;
 		const FetchData = () => {
 			setLoading(true);
 			fetch(url, options)
@@ -32,8 +31,8 @@ const useFetch = (url, options) => {
 				});
 		};
 
-		// Async/ Await version of fetching from an API endpoints
-		// const Fetchdata = async () => {
+		//Async/ Await version of fetching from an API endpoints
+		// const FetchData = async () => {
 		// 	setLoading(true);
 		// 	try {
 		// 		const res = await fetch(url, options);
@@ -57,7 +56,7 @@ const useFetch = (url, options) => {
 		return () => {
 			isMounted = false;
 		};
-	}, [url, options]);
+	}, [url, options, error]);
 
 	return { data, loading, error };
 };

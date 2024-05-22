@@ -3,9 +3,7 @@ import { Link } from 'react-router-dom';
 import useFetch from '../components/useFetch';
 
 const Home = () => {
-	const { data, loading, error } = useFetch(
-		'https://jsonplaceholder.typicode.com/todos'
-	);
+	const { data, loading } = useFetch('http://localhost:3000/todo');
 
 	return (
 		<div className="">
@@ -21,9 +19,9 @@ const Home = () => {
 						{loading ? (
 							<p className="py-8 px-6">Loading data...</p>
 						) : (
-							data.map((todo) => (
+							data.map((todo, index) => (
 								<div
-									key={todo.id}
+									key={todo.id || index}
 									className=" bg-white mx-4 my-4 border border-opacity-35 rounded-2xl hover:shadow-md"
 								>
 									<div className="flex justify-between px-4 py-5">
