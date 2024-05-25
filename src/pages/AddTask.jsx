@@ -39,7 +39,7 @@ const AddTask = () => {
 		}
 		const newId = highestId + 1;
 
-		//POST request to create a new instance
+		//POST request to create a new instance of the specified object
 		const postOptions = {
 			method: 'POST',
 			headers: {

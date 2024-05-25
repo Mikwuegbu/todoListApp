@@ -5,7 +5,7 @@ import useFetch from '../components/useFetch';
 const Home = () => {
 	const { data, loading } = useFetch('http://localhost:3000/todo');
 
-	//Function to handle Delete of Tasks
+	//Function to handle Delete of Tasks and reload the page
 	const handlerDeleteTask = (task) => {
 		fetch(`http://localhost:3000/todo/${task}`, {
 			method: 'DELETE',
@@ -20,6 +20,7 @@ const Home = () => {
 				res.json().then((data) => data.title + 'has been deleted')
 			);
 		});
+		window.location.reload();
 	};
 
 	return (
