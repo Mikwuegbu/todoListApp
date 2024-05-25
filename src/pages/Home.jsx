@@ -5,6 +5,23 @@ import useFetch from '../components/useFetch';
 const Home = () => {
 	const { data, loading } = useFetch('http://localhost:3000/todo');
 
+	//Function to handle Delete of Tasks
+	const handlerDeleteTask = (task) => {
+		fetch(`http://localhost:3000/todo/${task}`, {
+			method: 'DELETE',
+			headers: {
+				'Content-Type': 'application/json',
+			},
+		}).then((res) => {
+			if (!res.ok) {
+				throw new Error(`Error deleting ${res.status}`);
+			}
+			return console.log(
+				res.json().then((data) => data.title + 'has been deleted')
+			);
+		});
+	};
+
 	return (
 		<div className="">
 			<div className="bg-[#dadcec]">
@@ -29,14 +46,14 @@ const Home = () => {
 											<h1 className="font-semibold text-sm text-[#9395D3]">
 												{todo.title}
 											</h1>
-											<p className="text-base">{todo.title}</p>
+											<p className="text-base">{todo.details}</p>
 										</div>
 									</div>
 									<div className="flex space-x-6 justify-end py-4 px-4">
-										<Link to="/edittask">
+										<Link to={`/edittask`}>
 											<img src={pen} alt={pen} className="w-5 h-5" />
 										</Link>
-										<button>
+										<button onClick={() => handlerDeleteTask(todo.id)}>
 											<img
 												src={recycleBin}
 												alt={recycleBin}
@@ -46,7 +63,7 @@ const Home = () => {
 										<button>
 											<img
 												src={checkmark}
-												alt={recycleBin}
+												alt={checkmark}
 												className="w-5 h-5"
 											/>
 										</button>

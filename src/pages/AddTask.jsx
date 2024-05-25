@@ -1,5 +1,5 @@
 import { arrow } from '../assets';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 
 const AddTask = () => {
@@ -8,6 +8,7 @@ const AddTask = () => {
 	const [loading, setLoading] = useState(false);
 	const [error, setError] = useState(null);
 	const [highestId, setHighestId] = useState(0);
+	const navigate = useNavigate();
 
 	//This is to set the id of the Object to be incremental
 	useEffect(() => {
@@ -46,7 +47,7 @@ const AddTask = () => {
 			},
 			body: JSON.stringify({
 				userId: 1,
-				id: newId,
+				id: newId.toString(),
 				title: titleData,
 				details: detailsData,
 			}),
@@ -69,6 +70,7 @@ const AddTask = () => {
 			alert('Failed to add task');
 		} finally {
 			setLoading(false);
+			navigate('/');
 		}
 	};
 
